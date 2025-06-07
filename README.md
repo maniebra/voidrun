@@ -18,7 +18,11 @@ Examples of usecases for VoidRun include:
 
 ### Docker
 
-You can use VoidRun with Docker.
+You can use VoidRun with Docker:
+
+```bash
+docker pull maniebra/voidrun:latest
+```
 
 ### Linux (Manual)
 
