@@ -19,7 +19,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ vars.REGISTRY_USERNAME }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Extract release tag
@@ -28,8 +28,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.REGISTRY }}/${{ vars.REGISTRY_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tag }} .
+          docker build -t ${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tag }} .
 
       - name: Push Docker image
         run: |
-          docker push ${{ env.REGISTRY }}/${{ vars.REGISTRY_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tag }}
+          docker push ${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tag }}
