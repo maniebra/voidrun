@@ -6,10 +6,13 @@ RUN apt update && apt install -y \
     nodejs npm \
     curl coreutils
 
-RUN npm install -g ts-node
-RUN pip install fastapi uvicorn python-multipart --break-system-packages
 
 WORKDIR /app
+
+COPY ./requirements.txt /app/requirements.txt 
+RUN pip install -r requirements.txt --break-system-packages
+RUN npm install -g ts-node
+
 COPY . /app
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
