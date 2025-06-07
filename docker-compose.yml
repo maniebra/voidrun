@@ -1,0 +1,6 @@
+services:
+  voidrun:
+    image: voidrun
+    build:
+      context: .
+      dockerfile: Dockerfile
