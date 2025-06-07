@@ -6,7 +6,6 @@ on:
 
 env:
   IMAGE_NAME: voidrun
-  DOCKER_HUB_USER: maniebra
   REGISTRY: docker.io
 
 jobs:
@@ -20,17 +19,17 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.REGISTRY_USERNAME }}
+          username: ${{ vars.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - name: Set release tag
+      - name: Extract release tag
         id: meta
         run: echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
 
       - name: Build Docker image
         run: |
-          docker build -t $REGISTRY/$DOCKER_HUB_USER/$IMAGE_NAME:${{ steps.meta.outputs.tag }} .
+          docker build -t ${{ env.REGISTRY }}/${{ vars.REGISTRY_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tag }} .
 
       - name: Push Docker image
         run: |
-          docker push $REGISTRY/$DOCKER_HUB_USER/$IMAGE_NAME:${{ steps.meta.outputs.tag }}
+          docker push ${{ env.REGISTRY }}/${{ vars.REGISTRY_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tag }}
