@@ -19,6 +19,15 @@ def save_file(dest_path: str, file_obj) -> None:
     with open(dest_path, "wb") as f:
         f.write(file_obj.file.read())
 
+def save_files(dest_dir: str, files) -> list[str]:
+    """Saves multiple UploadFile objects to dest_dir and returns their names."""
+    filenames = []
+    for file_obj in files:
+        dest_path = os.path.join(dest_dir, file_obj.filename)
+        save_file(dest_path, file_obj)
+        filenames.append(file_obj.filename)
+    return filenames
+
 def ensure_empty_stdin(path: str) -> None:
     """
     Creates an empty stdin.txt file if no stdin provided.

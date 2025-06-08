@@ -13,6 +13,13 @@ Examples of usecases for VoidRun include:
 - Debugging code in a controlled environment.
 - Executing code in a controlled environment.
 - Juging code in a controlled environment.
+- Running projects that require installing dependencies or network access.
+
+## New Features
+
+- **Multi-file execution**: upload several files at once.
+- **Dependency installation**: provide setup commands like `pip install`.
+- **Optional networking**: enable network access when needed for tests.
 
 ## Installation
 
