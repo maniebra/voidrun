@@ -3,4 +3,14 @@ theme:
   name: readthedocs 
 
 nav:
-  - Home: index.md
+  - Get Started:
+    - Home: index.md
+    - Installation: getstarted/installation.md
+  - API Services:
+      - One-shot Run: api/oneshot.md
+      - Judge with Expectation: api/judge_expected.md
+      - Judge with Script: api/judge_scripted.md
+      - WebSocket Service: api/websocket_service.md
+  - System Design:
+      - Project Architecture: systemdesign/project_architecture.md
+      - Documentation Structure: systemdesign/documentation_structure.md

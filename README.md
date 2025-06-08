@@ -12,7 +12,7 @@ Examples of usecases for VoidRun include:
 - Testing code in a controlled environment.
 - Debugging code in a controlled environment.
 - Executing code in a controlled environment.
-- Juging code in a controlled environment.
+- Judging code in a controlled environment.
 - Running projects that require installing dependencies or network access.
 
 ## New Features
