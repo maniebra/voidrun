@@ -7,17 +7,19 @@ class FirejailSandbox(BaseSandbox):
         self,
         working_dir: str,
         timeout: int = 5,
-        max_processes: int = 10
+        max_processes: int = 10,
+        network_enabled: bool = False,
     ):
-        super().__init__(working_dir)
+        super().__init__(working_dir, network_enabled)
         self.timeout = timeout
         self.max_processes = max_processes
 
     def run(self, command: str, stdin_path: str) -> dict:
         # Wrap the user command with ulimit + firejail + timeout
+        net_option = "" if self.network_enabled else "--net=none"
         sandbox_cmd = (
             f"ulimit -u {self.max_processes}; "
-            f"firejail --quiet --net=none --private={self.working_dir} "
+            f"firejail --quiet {net_option} --private={self.working_dir} "
             f"timeout {self.timeout} {command}"
         )
 
