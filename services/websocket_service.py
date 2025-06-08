@@ -1,5 +1,8 @@
-def enqueue_websocket_execution(
-    connection,
+from fastapi.websockets import WebSocket
+
+
+async def enqueue_websocket_execution(
+    connection: WebSocket,
     lang: str,
     code_files,
     stdin_file=None,
@@ -8,4 +11,4 @@ def enqueue_websocket_execution(
 ):
     # Placeholder for websocket-based queuing
     # connection is assumed to be an open WebSocket connection
-    connection.send_text("[VoidRun] WebSocket queuing not yet implemented.")
+    await connection.send_text("[VoidRun] WebSocket queuing not yet implemented.")

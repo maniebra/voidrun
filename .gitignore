@@ -1,1 +1,21 @@
+# VIRTUAL ENVIRONMENT
+env/
+venv/
+.venv/
+
+# ENVIRONMENT VARIABLES
 **/*.env
+
+# LOGS
+**/*.log
+**/*.log.*
+
+# DATABASE
+**/*.db
+
+# PYCACHE
+**/__pycache__
+**/*.pyc
+
+# MISC
+pyrightconfig.json
