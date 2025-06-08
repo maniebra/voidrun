@@ -1,6 +1,6 @@
 site_name: Voidrun
 theme:
-  name: material
+  name: readthedocs 
 
 nav:
   - Home: index.md
