@@ -9,7 +9,6 @@ executor_controller = APIRouter();
 
 @executor_controller.post("/run")
 async def run_code(
-    self,
     lang: str = Form(...),
     code: list[UploadFile] = Form(...),
     stdin: UploadFile = Form(None),
