@@ -20,7 +20,7 @@ from config import SECRET_KEY, DEBUG, SHOULD_USE_SWAGGER, SWAGGER_URL
 
 judge_controller = APIRouter();
 
-@judge_controller.post("/judge-scripted")
+@judge_controller.post("/scripted")
 async def judge_scripted(
     lang: str = Form(...),
     code: List[UploadFile] = Form(...),
@@ -48,7 +48,7 @@ async def judge_scripted(
             raise HTTPException(status_code=500, detail=str(e))
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
-@judge_controller.post("/judge/expected")
+@judge_controller.post("/expected")
 async def judge_expected_output(
     lang: str = Form(...),
     code: List[UploadFile] = Form(...),

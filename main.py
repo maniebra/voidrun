@@ -32,5 +32,3 @@ if SHOULD_USE_SWAGGER:
 
 app.include_router(executor_controller, prefix="/executor")
 app.include_router(judge_controller, prefix="/judge")
-
-
